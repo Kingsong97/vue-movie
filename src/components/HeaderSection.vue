@@ -1,20 +1,42 @@
+<!-- src/components/HeaderSection.vue -->
 <template>
   <header id="header" role="banner">
     <div class="header_inner container">
-      <h1>Movie<span>Review</span></h1>
+      <h1 @click="home"><v-icon name="bi-film" scale="1.4"></v-icon>Hello <span>Movie</span></h1>
       <div class="search">
         <div class="search-box">
-          <input type="search" placeholder="" />
-          <button>검색</button>
+          <input v-model="searchQuery" type="search" placeholder="영화 검색" />
+          <button @click="performSearch">검색</button>
         </div>
       </div>
     </div>
   </header>
-
-  <footer id="footer" role="contentinfo">
-    <div class="footer__inner container"></div>
-  </footer>
 </template>
+
+<script>
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+
+export default {
+  name: 'HeaderSection',
+  setup() {
+    const searchQuery = ref('')
+    const router = useRouter()
+
+    const performSearch = () => {
+      if (searchQuery.value.trim()) {
+        router.push({ name: 'search', query: { q: searchQuery.value } })
+      }
+    }
+
+    const home = () => {
+      this.$router.push({ name: 'home' })
+    }
+
+    return { searchQuery, performSearch, home }
+  }
+}
+</script>
 
 <style lang="scss">
 #header {
@@ -49,6 +71,7 @@
   }
   h1 {
     font-size: 2.5rem;
+    cursor: pointer;
     span {
       font-size: 1.5rem;
     }
