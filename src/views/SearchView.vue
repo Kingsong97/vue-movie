@@ -1,9 +1,11 @@
 <script setup>
 import { ref, onMounted, watch } from 'vue'
 import axios from 'axios'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
+import HeaderSection from '@/components/HeaderSection.vue'
 
 const route = useRoute()
+const router = useRouter()
 const movies = ref([])
 const loading = ref(false)
 
@@ -32,15 +34,20 @@ watch(
 onMounted(() => {
   fetchMovies(route.query.q)
 })
+
+const goToDetail = (id) => {
+  router.push({ name: 'detail', params: { movieId: id } })
+}
 </script>
 
 <template>
+  <HeaderSection />
   <div class="search-results container">
     <h1>검색 결과</h1>
     <div v-if="loading" class="loading">로딩 중...</div>
     <div v-if="!loading && movies.length === 0" class="no-results">검색 결과가 없습니다.</div>
     <div v-if="!loading && movies.length > 0" class="movies">
-      <div v-for="movie in movies" :key="movie.id" class="movie">
+      <div v-for="movie in movies" :key="movie.id" class="movie" @click="goToDetail(movie.id)">
         <img :src="`https://image.tmdb.org/t/p/w500/${movie.poster_path}`" :alt="movie.title" />
         <h2>{{ movie.title }}</h2>
       </div>
@@ -62,6 +69,7 @@ onMounted(() => {
     justify-content: center;
     .movie {
       margin: 10px;
+      cursor: pointer; /* 추가: 마우스 커서가 포인터로 변경되도록 */
       img {
         width: 200px;
         height: 300px;
