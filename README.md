@@ -1,6 +1,8 @@
 # API를 이용한 영화 소개 사이트
 
-이 프로젝트는 The Movie Database (TMDb) API를 이용하여 영화 정보를 제공하는 웹 애플리케이션입니다. 최신 영화, 인기 영화, 그리고 다양한 필터 옵션을 통해 영화를 검색하고 상세 정보를 확인할 수 있습니다.
+이 프로젝트는 The Movie Database (TMDb) API를 이용하여 영화 정보를 제공하는 웹 사이트입니다. 최신 영화, 인기 영화, 그리고 다양한 필터 옵션을 통해 영화를 검색하고 상세 정보를 확인할 수 있습니다.
+
+![image](https://github.com/Kingsong97/Kingsong97.github.io/assets/161429740/26602172-93e0-4404-ae06-3d61c2984c1c)
 
 ## 기능
 
