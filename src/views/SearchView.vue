@@ -14,7 +14,7 @@ const fetchMovies = async (query) => {
   loading.value = true
   try {
     const response = await axios.get(
-      `https://api.themoviedb.org/3/search/movie?api_key=9278d13f704ad0fe53c2263b692efd89&query=${query}&language=ko-KR`
+      `https://api.themoviedb.org/3/search/movie?api_key=${import.meta.env.VITE_TMDB_API_KEY}&query=${query}&language=ko-KR`
     )
     movies.value = response.data.results
   } catch (error) {

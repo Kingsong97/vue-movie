@@ -12,7 +12,7 @@ const latestMovies = ref([])
 const filteredMovies = ref([])
 const showFilteredMovies = ref(false)
 const router = useRouter()
-const apikey = '9278d13f704ad0fe53c2263b692efd89'
+const apikey = import.meta.env.VITE_TMDB_API_KEY
 
 const fetchMovies = async () => {
   try {

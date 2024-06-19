@@ -6,7 +6,7 @@ import axios from 'axios'
 const route = useRoute()
 const movieId = route.params.movieId
 const movie = ref(null)
-const apikey = '9278d13f704ad0fe53c2263b692efd89'
+const apikey = import.meta.env.VITE_TMDB_API_KEY
 const defaultImage = 'https://via.placeholder.com/200x300?text=No+Image'
 
 const fetchMovieDetails = async () => {
