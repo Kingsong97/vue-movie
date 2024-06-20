@@ -158,7 +158,7 @@ onMounted(fetchMovieDetails)
 }
 .detail-header img {
   width: 200px;
-  height: 300px;
+  height: auto;
   object-fit: cover;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);

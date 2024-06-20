@@ -65,7 +65,7 @@ onMounted(fetchMovies)
   </Swiper>
   <hr class="divider" />
 </template>
-<style>
+<!-- <style>
 @import 'swiper/swiper-bundle.css';
 
 .section-title {
@@ -124,4 +124,4 @@ onMounted(fetchMovies)
 .style3 {
   background-color: #d1d1d1;
 }
-</style>
+</style> -->

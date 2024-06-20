@@ -99,10 +99,10 @@ onMounted(fetchMovies)
   text-align: center;
   background-color: #fff;
   width: 90%;
-  max-width: 300px;
+  /* max-width: 300px; */
   img {
-    width: 100%;
-    height: 400px;
+    /* width: 100%; */
+    height: 50vh;
     object-position: center;
     cursor: pointer;
   }
