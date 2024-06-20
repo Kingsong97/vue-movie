@@ -15,8 +15,6 @@ const fetchMovieDetails = async () => {
       `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apikey}&language=ko-KR&append_to_response=credits,images,videos`
     )
     movie.value = response.data
-    console.log('Movie Data:', movie.value)
-    console.log('Posters:', movie.value.images ? movie.value.images.posters : 'No images')
   } catch (error) {
     console.error(error)
   }
@@ -45,7 +43,7 @@ onMounted(fetchMovieDetails)
           <h1>{{ movie.title }}</h1>
           <div class="movie-details">
             <span>
-              <v-icon name="io-star-outline" scale="1.2"></v-icon>
+              <v-icon name="io-star-outline" scale="1.2" class="star-icon"></v-icon>
               {{ movie.vote_average.toFixed(1) }}
             </span>
             <span>{{ movie.release_date }}</span>
@@ -229,5 +227,10 @@ onMounted(fetchMovieDetails)
   border: none;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.star-icon {
+  color: yellow;
+  font-size: 1.2em;
 }
 </style>
